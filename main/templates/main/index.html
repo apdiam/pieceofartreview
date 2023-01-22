@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <br>
+    <div class="card">
+        <div class="card-body" id="backdrop">
+            <div class="row">
+                {% for piece in piecesofart %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img src="{{ piece.image }}" alt="img-fluid" width="75%">
+                                <h3 class="text-center">{{ piece.name }}</h3>
+                                <i class="text-center">{{ piece.creation_year }}</i>
+                                <a href="{% url 'main:details' piece.id %}">Read more..</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
